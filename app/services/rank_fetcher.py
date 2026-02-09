@@ -4,7 +4,7 @@ from ..utils.catchers.iv_catcher import find_iv_rank_great, find_iv_rank_ultra, 
 from ..api.models import DataToStoreModel
 
 def great_fetcher(data: dict, output: DataToStoreModel):
-    output.rank_liga_grande = findleague_rank(data, output.nome)
+    output.rank_liga_grande = find_league_rank(data, output.nome)
 
     if output.rank_liga_grande:
         output.rank_iv_grande = find_iv_rank_great(output.nome, output.ataque_iv, output.defesa_iv, output.hp_iv)
