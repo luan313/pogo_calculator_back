@@ -2,7 +2,7 @@ from fastapi import APIRouter
 
 from ...utils.supabase_utils.type_tier_list import get_great_pokemon, get_ultra_pokemon, get_master_pokemon
 
-from ....config import TYPES
+from app.config import TYPES
 
 router = APIRouter()
 

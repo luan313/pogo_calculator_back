@@ -1,6 +1,6 @@
 import requests
 import json
-from ...config import(
+from ..config import(
     URL_GREAT,
     URL_ULTRA,
     URL_MASTER
