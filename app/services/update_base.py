@@ -31,5 +31,5 @@ def update_json(url, filename):
         print(f"Erro ao atualizar {filename}: {e}")
 
 update_json(URL_GREAT, 'base_great.json')
-update_json(URL_GREAT, 'base_ultra.json')
-update_json(URL_GREAT, 'base_master.json')
+update_json(URL_ULTRA, 'base_ultra.json')
+update_json(URL_MASTER, 'base_master.json')
