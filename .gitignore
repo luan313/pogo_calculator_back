@@ -39,3 +39,5 @@ playwright/.local-browsers
 # OS específicos
 .DS_Store
 Thumbs.db
+
+Dockerfile
