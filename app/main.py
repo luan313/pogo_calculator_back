@@ -9,7 +9,7 @@ app = FastAPI()
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["https://pogo-calculator-front.vercel.app/"], # Permite o seu frontend
+    allow_origins=["https://pogo-calculator-front.vercel.app"], # Permite o seu frontend
     allow_credentials=True,
     allow_methods=["*"], # Permite todos os métodos (GET, POST, etc)
     allow_headers=["*"], # Permite todos os headers
