@@ -27,3 +27,7 @@ class PokemonInput(BaseModel):
     nome: str
     tipo: List[str]
     ivs: List[IV]
+
+class PokemonSuggestion(BaseModel):
+    name: str
+    types: List[str]

@@ -1,13 +1,16 @@
 from fastapi import APIRouter, Query
-from typing import List
+from typing import List, Dict
 import requests
+from ..models import PokemonSuggestion
 
 router = APIRouter()
 
-data = requests.get("https://raw.githubusercontent.com/pvpoke/pvpoke/master/src/data/gamemaster.json").json()
-POKEMON_IDS = [p["speciesId"] for p in data["pokemon"]]
+gm_data = requests.get("https://raw.githubusercontent.com/pvpoke/pvpoke/master/src/data/gamemaster.json").json()
 
-@router.get("/autocomplete", response_model=List[str])
+POKEMON_MAP = {p["speciesId"]: p["types"] for p in gm_data["pokemon"]}
+POKEMON_IDS = List(POKEMON_MAP.keys())
+
+@router.get("/autocomplete", response_model=List[PokemonSuggestion])
 def autocomplete(q: str = Query(..., min_length=1)):
     query = q.lower()
     
@@ -17,4 +20,9 @@ def autocomplete(q: str = Query(..., min_length=1)):
         contem = [name for name in POKEMON_IDS if query in name.lower() and name not in sugestoes]
         sugestoes.extend(contem)
 
-    return sugestoes[:10]
+    resultado = [
+        PokemonSuggestion(name=name, types=POKEMON_MAP[name])
+        for name in sugestoes[:10]
+    ]
+
+    return resultado
