@@ -4,6 +4,7 @@ from fastapi.middleware.cors import CORSMiddleware
 from .api.routes import store_data
 from .api.routes import get_tier_list
 from .api.routes import search
+from .api.routes import remove_pokemon
 
 app = FastAPI()
 
@@ -18,3 +19,4 @@ app.add_middleware(
 app.include_router(store_data.router)
 app.include_router(get_tier_list.router)
 app.include_router(search.router)
+app.include_router(remove_pokemon.router)
