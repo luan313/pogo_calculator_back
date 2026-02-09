@@ -1,19 +1,35 @@
 import requests
 import json
+import os
+
 from ..config import(
     URL_GREAT,
     URL_ULTRA,
     URL_MASTER
 )
 
-response_great = requests.get(URL_GREAT).json()
-with open('C:\\Users\\luanf\\GitHub\\pogocalculator\\backend\\data\\base_great.json', 'w', encoding='utf-8') as f:
-    json.dump(response_great, f, ensure_ascii=False, indent=4)
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+DATA_DIR = os.path.join(BASE_DIR, "data")
 
-response_ultra = requests.get(URL_ULTRA).json()
-with open('C:\\Users\\luanf\\GitHub\\pogocalculator\\backend\\data\\base_ultra.json', 'w', encoding='utf-8') as f:
-    json.dump(response_ultra, f, ensure_ascii=False, indent=4)
+if not os.path.exists(DATA_DIR):
+    os.makedirs(DATA_DIR)
 
-response_master = requests.get(URL_MASTER).json()
-with open('C:\\Users\\luanf\\GitHub\\pogocalculator\\backend\\data\\base_master.json', 'w', encoding='utf-8') as f:
-    json.dump(response_master, f, ensure_ascii=False, indent=4)
+def update_json(url, filename):
+    try:
+        response = requests.get(url)
+        response.raise_for_status()
+        data = response.json()
+
+        path = os.path.join(DATA_DIR, filename)
+
+        with open(path, 'w', encoding='utf-8') as f:
+            json.dump(data, f, ensure_ascii=False, indent=4)
+
+        print(f"Sucesso: {filename} atualizado em {path}")
+
+    except Exception as e:
+        print(f"Erro ao atualizar {filename}: {e}")
+
+update_json(URL_GREAT, 'base_great.json')
+update_json(URL_GREAT, 'base_ultra.json')
+update_json(URL_GREAT, 'base_master.json')
