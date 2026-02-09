@@ -3,6 +3,17 @@ from ..models import DataToStoreModel, PokemonInput, ResponseStatus
 from ...services.rank_fetcher import great_fetcher, ultra_fetcher, master_fetcher
 from ...utils.supabase_utils.insert import insert_pokemon
 from ...utils.base_loader import carregar_base
+import os
+
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+path_great = os.path.join(BASE_DIR, "data", "base_great.json")
+BASE_GREAT = carregar_base(path_great)
+
+path_ultra = os.path.join(BASE_DIR, "data", "base_ultra.json")
+BASE_ULTRA = carregar_base(path_ultra)
+
+path_master = os.path.join(BASE_DIR, "data", "base_master.json")
+BASE_MASTER = carregar_base(path_master)
 
 router = APIRouter()
 
@@ -13,9 +24,6 @@ def store_data(payload: PokemonInput):
 
     contador = 0
 
-    base_great = carregar_base('C:\\Users\\luanf\\GitHub\\pogocalculator\\backend\\data\\base_great.json')
-    base_ultra = carregar_base('C:\\Users\\luanf\\GitHub\\pogocalculator\\backend\\data\\base_ultra.json')
-    base_master = carregar_base('C:\\Users\\luanf\\GitHub\\pogocalculator\\backend\\data\\base_master.json')
     
     for each in payload.ivs:
         output = DataToStoreModel(
@@ -29,15 +37,15 @@ def store_data(payload: PokemonInput):
 
         output.rank_liga_grande = None
         output.rank_iv_grande = None
-        great_fetcher(base_great, output)
+        great_fetcher(BASE_GREAT, output)
 
         output.rank_liga_ultra = None
         output.rank_iv_ultra = None
-        ultra_fetcher(base_ultra, output)
+        ultra_fetcher(BASE_ULTRA, output)
 
         output.rank_liga_mestra = None
         output.rank_iv_mestra = None
-        master_fetcher(base_master, output)
+        master_fetcher(BASE_MASTER, output)
     
         insert_pokemon(output)
         contador += 1
