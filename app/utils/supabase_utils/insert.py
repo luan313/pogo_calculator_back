@@ -17,6 +17,7 @@ def insert_pokemon(data: DataToStoreModel):
             "rank_liga_ultra": data.rank_liga_ultra,           
             "rank_liga_mestra": data.rank_liga_mestra,          
         })
+        .execute()
     )
 
     return response
