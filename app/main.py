@@ -1,3 +1,5 @@
+import logging
+
 from fastapi import FastAPI, APIRouter
 from fastapi.middleware.cors import CORSMiddleware
 
@@ -5,6 +7,11 @@ from .api.routes import store_data
 from .api.routes import get_tier_list
 from .api.routes import search
 from .api.routes import remove_pokemon
+
+logging.basicConfig(
+    level=logging.INFO,
+    format="%(levelname)s: %(name)s - %(message)s"
+)
 
 app = FastAPI()
 
