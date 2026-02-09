@@ -10,15 +10,29 @@ logger = logging.getLogger(__name__)
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
-def safe_load(path):
+def safe_load(nome_arquivo, url_fallback):
+    path = os.path.join(BASE_DIR, "data", nome_arquivo)
+    
+    # 1. Tenta carregar do disco (Prioridade Máxima)
     if os.path.exists(path):
-        return carregar_base(path)
-    logger.error(f"Arquivo não encontrado: {path}")
-    return []
+        try:
+            return carregar_base(path)
+        except Exception as e:
+            logger.error(f"Erro ao ler {nome_arquivo}: {e}")
 
-BASE_GREAT = safe_load(os.path.join(BASE_DIR, "data", "base_great.json"))
-BASE_ULTRA = safe_load(os.path.join(BASE_DIR, "data", "base_ultra.json"))
-BASE_MASTER = safe_load(os.path.join(BASE_DIR, "data", "base_master.json"))
+    # 2. Fallback: Baixa da URL para o site não ficar offline
+    logger.warning(f"Arquivo {nome_arquivo} não encontrado. Usando fallback via URL.")
+    try:
+        import requests
+        return requests.get(url_fallback).json()
+    except Exception as e:
+        logger.error(f"Falha total ao carregar {nome_arquivo}: {e}")
+        return {} # Retorna dicionário vazio para evitar erro de tipo
+
+# Carregamento robusto
+BASE_GREAT = safe_load("base_great.json", URL_GREAT)
+BASE_ULTRA = safe_load("base_ultra.json", URL_ULTRA)
+BASE_MASTER = safe_load("base_master.json", URL_MASTER)
 
 router = APIRouter()
 
