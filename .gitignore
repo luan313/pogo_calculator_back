@@ -1,0 +1,41 @@
+# Python - Cache e Compilação
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+.python-version
+
+# Ambientes Virtuais (Venv)
+venv/
+.venv/
+env/
+bin/
+lib64/
+share/python-wheels/
+
+# Variáveis de Ambiente e Segredos (NUNCA envie para o GitHub)
+.env
+.env.local
+.env.*
+secrets.json
+
+# IDEs e Editores
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Logs
+*.log
+logs/
+
+# Playwright / Navegadores (Se for usar para a raspagem)
+pw_browser/
+test-results/
+playwright-report/
+blob-report/
+playwright/.local-browsers
+
+# OS específicos
+.DS_Store
+Thumbs.db
