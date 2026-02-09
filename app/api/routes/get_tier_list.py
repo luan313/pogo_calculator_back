@@ -23,5 +23,5 @@ def get_tier_list():
         return tier_list
 
     except Exception as e:
-        print(f"Erro ao gerar tier list: {e}")
-        return {"error": "Falha ao processar dados", "details": str(e)}
+        print(f"Erro interno: {e}")
+        return {"great": {}, "ultra": {}, "master": {}, "error": str(e)}
