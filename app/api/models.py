@@ -16,12 +16,12 @@ class DataToStoreModel(BaseModel):
     ataque_iv: int
     defesa_iv: int
     hp_iv: int
-    rank_iv_grande: int        
-    rank_iv_ultra: int       
-    rank_iv_mestra: int
-    rank_liga_grande: int
-    rank_liga_ultra: int
-    rank_liga_mestra: int
+    rank_iv_grande: int | None = None        
+    rank_iv_ultra: int | None = None       
+    rank_iv_mestra: int | None = None
+    rank_liga_grande: int | None = None
+    rank_liga_ultra: int | None = None
+    rank_liga_mestra: int | None = None
 
 class PokemonInput(BaseModel):
     nome: str

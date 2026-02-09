@@ -9,6 +9,7 @@ router = APIRouter()
 @router.post("/store_data", response_model=ResponseStatus)
 def store_data(payload: PokemonInput):
     name = payload.nome
+    typep = payload.tipo
 
     contador = 0
 
@@ -19,6 +20,7 @@ def store_data(payload: PokemonInput):
     for each in payload.ivs:
         output = DataToStoreModel(
             nome=name,
+            tipo=typep,
             ataque_iv = each.ataque_iv,
             defesa_iv = each.defesa_iv,
             hp_iv = each.hp_iv
