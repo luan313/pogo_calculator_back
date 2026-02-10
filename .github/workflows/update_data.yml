@@ -21,7 +21,7 @@ jobs:
       - name: Run update script
         run: |
           export PYTHONPATH=$PYTHONPATH:$(pwd)
-          python app/services/update_base.py
+          python -m app/services/update_base.py
       - name: Commit and push if changed
         run: |
           git config --global user.name 'Github Action'
