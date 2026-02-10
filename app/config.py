@@ -22,3 +22,8 @@ TYPES = [
     'steel',
     'water'
 ]
+
+# URL do código fonte do PvPoke para pegar o CPM
+URL_JS_PVPOKE = "https://raw.githubusercontent.com/pvpoke/pvpoke/master/src/js/pokemon/Pokemon.js"
+# URL para os Base Stats (Gamemaster)
+URL_GAMEMASTER = "https://raw.githubusercontent.com/pvpoke/pvpoke/master/src/data/gamemaster.json"

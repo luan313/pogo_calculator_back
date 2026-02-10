@@ -7,16 +7,14 @@ from app.utils.supabase_utils.connect import SupabaseConnection
 
 # Tenta importar do config, se falhar usa defaults para o Github Action
 try:
-    from app.config import URL_GREAT, URL_ULTRA, URL_MASTER
+    from app.config import URL_GREAT, URL_ULTRA, URL_MASTER, URL_JS_PVPOKE, URL_GAMEMASTER
 except ImportError:
-    URL_GREAT = "https://pvpoke.com/data/groups/lg/rankings_1500.json"
-    URL_ULTRA = "https://pvpoke.com/data/groups/lg/rankings_2500.json"
-    URL_MASTER = "https://pvpoke.com/data/groups/lg/rankings_10000.json"
+    URL_GREAT = "https://raw.githubusercontent.com/pvpoke/pvpoke/master/src/data/rankings/all/overall/rankings-1500.json"
+    URL_ULTRA = "https://raw.githubusercontent.com/pvpoke/pvpoke/master/src/data/rankings/all/overall/rankings-2500.json"
+    URL_MASTER = "https://raw.githubusercontent.com/pvpoke/pvpoke/master/src/data/rankings/all/overall/rankings-10000.json"
+    URL_JS_PVPOKE = "https://raw.githubusercontent.com/pvpoke/pvpoke/master/src/js/pokemon/Pokemon.js"
+    URL_GAMEMASTER = "https://raw.githubusercontent.com/pvpoke/pvpoke/master/src/data/gamemaster.json"
 
-# URL do código fonte do PvPoke para pegar o CPM
-URL_JS_PVPOKE = "https://raw.githubusercontent.com/pvpoke/pvpoke/master/src/js/pokemon/Pokemon.js"
-# URL para os Base Stats (Gamemaster)
-URL_GAMEMASTER = "https://raw.githubusercontent.com/pvpoke/pvpoke/master/src/data/gamemaster.json"
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 DATA_DIR = os.path.join(BASE_DIR, "data")
