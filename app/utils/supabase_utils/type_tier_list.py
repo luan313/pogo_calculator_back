@@ -12,7 +12,7 @@ def get_pokemon_by_tier(league_rank_col, iv_rank_col, target_type, user_id):
         .select("*") \
         .contains("tipo", [target_type]) \
         .eq("user_id", user_id) \
-        .is_not(league_rank_col, "null") \
+        .not_.is_(league_rank_col, "null") \
         .order(iv_rank_col, desc=False) \
         .execute()
 
