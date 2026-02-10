@@ -26,6 +26,9 @@ jobs:
           pip install -r requirements.txt
 
       - name: Run update script
+        env:
+          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+          SUPABASE_KEY: ${{ secrets.SUPABASE_KEY }}
         run: |
           export PYTHONPATH=$PYTHONPATH:$(pwd)
           python -m app.services.update_base
