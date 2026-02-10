@@ -1,5 +1,5 @@
 from fastapi import APIRouter, HTTPException, Depends
-from .auth_dependency import get_current_user # Sua dependência de login
+from ..auth_dependency import get_current_user # Sua dependência de login
 from ...utils.supabase_utils.delete import delete_pokemon
 
 router = APIRouter()
