@@ -1,9 +1,11 @@
-from fastapi import APIRouter, HTTPException
+from fastapi import APIRouter, HTTPException, Depends
 from ..models import DataToStoreModel, PokemonInput, ResponseStatus
 
 from ...services.rank_fetcher import great_fetcher, ultra_fetcher, master_fetcher
 from ...utils.supabase_utils.insert import insert_pokemon
 from ...utils.base_loader import carregar_base
+
+from ..auth_dependency import get_current_user
 
 import os
 import logging
@@ -41,11 +43,14 @@ BASE_MASTER = safe_load("base_master.json", URL_MASTER)
 router = APIRouter()
 
 @router.post("/store_data", response_model=ResponseStatus)
-def store_data(payload: PokemonInput):
+def store_data(
+    payload: PokemonInput,
+    user = Depends(get_current_user)
+):
     try:
+        current_user_id = user.id
         name = payload.nome
         typep = payload.tipo
-
         contador = 0
 
         if not name or not typep:
@@ -53,6 +58,7 @@ def store_data(payload: PokemonInput):
         
         for each in payload.ivs:
             output = DataToStoreModel(
+                user_id=current_user_id,
                 nome=name,
                 tipo=typep,
                 ataque_iv = each.ataque_iv,

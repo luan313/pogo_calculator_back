@@ -5,6 +5,7 @@ def insert_pokemon(data: DataToStoreModel):
     response = (
         SupabaseConnection.table("pokemons")
         .insert({
+            "user_id": str(data.user_id),
             "nome": data.nome,
             "tipo": data.tipo,
             "ataque_iv": data.ataque_iv,
