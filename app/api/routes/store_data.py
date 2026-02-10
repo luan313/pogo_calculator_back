@@ -1,10 +1,14 @@
 from fastapi import APIRouter, HTTPException
 from ..models import DataToStoreModel, PokemonInput, ResponseStatus
+
 from ...services.rank_fetcher import great_fetcher, ultra_fetcher, master_fetcher
 from ...utils.supabase_utils.insert import insert_pokemon
 from ...utils.base_loader import carregar_base
+
 import os
 import logging
+
+from ...config import URL_GREAT, URL_ULTRA, URL_MASTER
 
 logger = logging.getLogger(__name__)
 
