@@ -14,8 +14,8 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__fil
 BASE_GAMEMASTER = safe_load("gamemaster.json", URL_GAMEMASTER)
 
 def dex_fetcher(tier_list: dict):
-    data = BASE_GAMEMASTER.get("pokemon")
+    pokemon_data = BASE_GAMEMASTER.get("pokemon")
     dex_map = {p["speciesId"]: p["dex"] for p in pokemon_data if "speciesId" in p and "dex" in p}
 
     for league in ["great", "ultra", "master"]:
-        dex_catcher(data, tier_list, league)
+        dex_catcher(dex_map, tier_list, league)
