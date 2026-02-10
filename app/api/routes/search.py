@@ -11,8 +11,8 @@ POKEMON_MAP = {p["speciesId"]: p["types"] for p in gm_data["pokemon"]}
 POKEMON_IDS = list(POKEMON_MAP.keys())
 
 @router.get("/autocomplete", response_model=List[PokemonSuggestion])
-def autocomplete(q: str = Query(..., min_length=1)):
-    query = q.lower()
+def autocomplete(name: str = Query(..., min_length=1)):
+    query = name.lower()
     
     sugestoes = [name for name in POKEMON_IDS if name.lower().startswith(query)]
     
