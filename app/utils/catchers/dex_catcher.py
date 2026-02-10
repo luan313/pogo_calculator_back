@@ -1,4 +1,4 @@
-from typing import list
+from typing import List
 
 def dex_catcher(dex_map: dict, tier_list: dict, league: str):
     for categorie_name, pokemon_list in tier_list[league].items():
