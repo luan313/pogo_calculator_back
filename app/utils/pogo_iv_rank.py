@@ -31,7 +31,7 @@ def get_rank(pokemon_id: str, atk: int, df: int, hp: int, league: int):
     
     # 2. Busca os Stats Base do Pokémon
     # No gamemaster do PvPoke, os pokémons ficam na chave "pokemon"
-    pokemon_stats = next((p for p in gm.get("pokemon", []) if p.get("pokemonId") == pokemon_id.lower()), None)
+    pokemon_stats = next((p for p in gm.get("pokemon", []) if p.get("speciesId") == pokemon_id.lower()), None)
 
     if not pokemon_stats:
         logger.warning(f"Pokémon {pokemon_id} não encontrado no gamemaster.")
