@@ -54,3 +54,41 @@ def get_rank_ones(iv_rank_col, user_id):
     except Exception as e:
         logger.error(f"Erro ao buscar Rank 1s ({iv_rank_col}): {e}")
         return []
+
+def get_bests_tier(league_rank_col, iv_rank_col, user_id):
+    """
+    Retorna os 6 melhores pokémons gerais de uma liga (independente do tipo),
+    mantendo apenas o melhor exemplar de cada espécie.
+    """
+    try:
+        # 1. Busca todos os candidatos da liga para o usuário (Sem filtro de tipo)
+        response = SupabaseConnection.table("pokemons") \
+            .select("*") \
+            .eq("user_id", user_id) \
+            .not_.is_(league_rank_col, "null") \
+            .order(iv_rank_col, desc=False) \
+            .execute()
+
+        all_candidates = response.data
+        
+        if not all_candidates:
+            return []
+
+        # 2. Mantém apenas o exemplar único com MENOR IV (melhor rank de IV)
+        unique_exemplars = {}
+        for poke in all_candidates:
+            nome = poke['nome'].lower().strip()
+            # Como a query já vem ordenada por IV Rank, o primeiro de cada nome é o melhor exemplar
+            if nome not in unique_exemplars:
+                unique_exemplars[nome] = poke
+                
+        # 3. Transforma em lista e ordena pelo RANK DA LIGA (Meta Rank)
+        final_list = list(unique_exemplars.values())
+        final_list.sort(key=lambda x: x[league_rank_col] if x[league_rank_col] is not None else 9999)
+
+        # 4. Retorna apenas os Top 6 Gerais
+        return final_list[:6]
+
+    except Exception as e:
+        logger.error(f"Erro ao buscar overall tier ({league_rank_col}): {e}")
+        return []
