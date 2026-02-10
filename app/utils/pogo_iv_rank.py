@@ -1,48 +1,87 @@
+import json
+import os
 import logging
-from playwright.sync_api import sync_playwright
+import math
 
 logger = logging.getLogger(__name__)
 
-def get_rank(pokemon: str, atk: int, df: int, hp: int, league: int):
-    # Log de entrada para verificar se os parâmetros chegam corretos
-    logger.info(f"🔍 Iniciando scraping de IV para {pokemon} ({atk}/{df}/{hp}) na liga {league}")
+# Caminho para os dados
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+DATA_DIR = os.path.join(BASE_DIR, "data")
+
+def load_json(filename):
+    path = os.path.join(DATA_DIR, filename)
+    if not os.path.exists(path):
+        logger.error(f"Arquivo {filename} não encontrado em {path}")
+        return None
+    with open(path, 'r', encoding='utf-8') as f:
+        return json.load(f)
+
+def get_rank(pokemon_id: str, atk: int, df: int, hp: int, league: int):
+    logger.info(f"📊 Calculando Rank IV (Matemático) para {pokemon_id} ({atk}/{df}/{hp}) na liga {league}")
+
+    # 1. Carrega os dados necessários
+    gm = load_json("gamemaster.json")
+    cpm_data = load_json("cpm.json")
+
+    if not gm or not cpm_data:
+        return None
+
+    cpms = cpm_data.get("cpms", [])
     
-    with sync_playwright() as p:
-        try:
-            # Lançamento do browser
-            logger.debug("Tentando abrir Chromium headless...")
-            browser = p.chromium.launch(headless=True)
-            page = browser.new_page()
+    # 2. Busca os Stats Base do Pokémon
+    # No gamemaster do PvPoke, os pokémons ficam na chave "pokemon"
+    pokemon_stats = next((p for p in gm.get("pokemon", []) if p.get("pokemonId") == pokemon_id.lower()), None)
 
-            url = f"https://pvpivs.com/?mon={pokemon}&cp={league}&IVs={atk}_{df}_{hp}"
-            logger.info(f"🔗 Acessando URL: {url}")
-            
-            # Timeout de navegação
-            page.goto(url, timeout=15000)
-            logger.debug("Página carregada. Aguardando tabela de resultados...")
+    if not pokemon_stats:
+        logger.warning(f"Pokémon {pokemon_id} não encontrado no gamemaster.")
+        return None
 
-            # Verifica se o seletor existe antes de capturar
-            page.wait_for_selector("#resultsTable", timeout=10000)
-            
-            # Captura o texto bruto
-            rank_text = page.locator("#resultsTable tbody tr:first-child td:first-child").inner_text()
-            logger.info(f"📝 Texto bruto capturado do rank: '{rank_text}'")
-            
-            if not rank_text:
-                logger.warning("A tabela foi encontrada, mas o campo de rank estava vazio.")
-                return None
+    base_stats = pokemon_stats.get("baseStats")
+    b_atk, b_def, b_hp = base_stats["atk"], base_stats["def"], base_stats["hp"]
 
-            rank_limpo = rank_text.replace('#', '').strip()
-            resultado = int(rank_limpo)
+    def get_stat_product(a, d, h, limit):
+        best_sp = 0
+        # Simula do nível 1 ao 50 (usando a tabela de CPM)
+        for cpm in cpms:
+            # Fórmula oficial de CP:
+            # CP = floor((Atk * sqrt(Def) * sqrt(HP) * CPM^2) / 10)
+            cur_atk = (b_atk + a) * cpm
+            cur_def = (b_def + d) * cpm
+            cur_hp = (b_hp + h) * cpm
             
-            logger.info(f"✅ Rank processado com sucesso: {resultado}")
-            return resultado
+            cp = math.floor((cur_atk * math.sqrt(cur_def) * math.sqrt(cur_hp)) / 10)
+            
+            # Se for Master League (limit 0 ou >= 10000), usamos nível 50 (último CPM)
+            if limit <= 0 or limit >= 10000:
+                # Master League costuma ser o último CPM disponível (Level 50)
+                final_cpm = cpms[-1]
+                return (b_atk + a) * (b_def + d) * (b_hp + h) * (final_cpm ** 3)
 
-        except Exception as e:
-            # Captura erros de timeout ou seletores que mudaram
-            logger.error(f"❌ Falha no scraping para {pokemon}: {str(e)}")
-            return None
-        finally:
-            if 'browser' in locals():
-                browser.close()
-                logger.debug("Browser encerrado.")
+            if cp <= limit:
+                best_sp = cur_atk * cur_def * math.floor(cur_hp) # Stat Product aproximado
+            else:
+                break
+        return best_sp
+
+    # 3. Calcula o Stat Product do usuário
+    user_sp = get_stat_product(atk, df, hp, league)
+
+    # 4. Gera todos os 4096 Stat Products possíveis para este Pokémon nesta liga
+    all_products = []
+    for i_a in range(16):
+        for i_d in range(16):
+            for i_h in range(16):
+                all_products.append(get_stat_product(i_a, i_d, i_h, league))
+
+    # 5. Ordena do maior para o menor e encontra a posição
+    all_products.sort(reverse=True)
+    
+    try:
+        # O Rank é o índice na lista ordenada + 1
+        rank = all_products.index(user_sp) + 1
+        logger.info(f"✅ Rank {rank} calculado localmente para {pokemon_id}")
+        return rank
+    except ValueError:
+        logger.error("Erro ao localizar o produto de atributos na lista gerada.")
+        return None
