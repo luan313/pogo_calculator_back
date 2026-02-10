@@ -20,7 +20,7 @@ def safe_load(nome_arquivo, url_fallback):
     # 1. Tenta carregar do disco (Prioridade Máxima)
     if os.path.exists(path):
         try:
-            return carregar_base(path)
+            return carregar_base(path, url_fallback)
         except Exception as e:
             logger.error(f"Erro ao ler {nome_arquivo}: {e}")
 
