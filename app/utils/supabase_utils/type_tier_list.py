@@ -1,5 +1,9 @@
 from .connect import SupabaseConnection
 
+import logging
+
+logger = logging.getLogger(__name__)
+
 def get_pokemon_by_tier(league_rank_col, iv_rank_col, target_type, user_id):
     """
     Inputs:
@@ -32,3 +36,21 @@ def get_pokemon_by_tier(league_rank_col, iv_rank_col, target_type, user_id):
 
     # 4. Retorna apenas os Top 6
     return final_list[:6]
+
+def get_rank_ones(iv_rank_col, user_id):
+    """
+    Busca todos os pokémons do usuário que são Rank 1 
+    na coluna de IV especificada.
+    """
+    try:
+        response = SupabaseConnection.table("pokemons") \
+            .select("*") \
+            .eq("user_id", user_id) \
+            .eq(iv_rank_col, 1) \
+            .order("nome", desc=False) \
+            .execute()
+
+        return response.data
+    except Exception as e:
+        logger.error(f"Erro ao buscar Rank 1s ({iv_rank_col}): {e}")
+        return []

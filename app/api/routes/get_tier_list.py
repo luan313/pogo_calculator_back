@@ -3,7 +3,7 @@ import logging
 
 from ..auth_dependency import get_current_user
 
-from ...utils.supabase_utils.type_tier_list import get_pokemon_by_tier
+from ...utils.supabase_utils.type_tier_list import get_pokemon_by_tier, get_rank_ones
 
 from app.config import TYPES
 
@@ -18,10 +18,14 @@ def get_tier_list(user = Depends(get_current_user)):
     tier_list = {
         "great": {},
         "ultra": {},
-        "master": {}
+        "master": {},
     }
 
     try:
+        tier_list["great"]["overall"] = get_rank_ones("rank_iv_grande", user_id)
+        tier_list["ultra"]["overall"] = get_rank_ones("rank_iv_ultra", user_id)
+        tier_list["master"]["overall"] = get_rank_ones("rank_iv_mestra", user_id)
+
         for t in TYPES:
             tier_list["great"][t] = get_pokemon_by_tier("rank_liga_grande", "rank_iv_grande", t, user_id)
             tier_list["ultra"][t] = get_pokemon_by_tier("rank_liga_ultra", "rank_iv_ultra", t, user_id)
