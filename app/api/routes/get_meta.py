@@ -26,7 +26,7 @@ def filter_top_six_by_type(base_data, poke_type):
     return top_six
 
 @router.get("/get_meta")
-def get_meta(user = Depends(get_current_user)):
+def get_meta():
     meta_final = {"great": {}, "ultra": {}, "master": {}}
     leagues = {"great": BASE_GREAT, "ultra": BASE_ULTRA, "master": BASE_MASTER}
 
