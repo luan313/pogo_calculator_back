@@ -27,5 +27,5 @@ app.add_middleware(
 app.include_router(store_data.router)
 app.include_router(get_tier_list.router)
 app.include_router(search.router)
-app.include_router(remove_pokemon.router)
 app.include_router(get_meta.router)
+app.include_router(remove_pokemon.router)
