@@ -1,10 +1,9 @@
 import logging
 import os
 
-from app.config import URL_GAMEMASTER
-
 from app.utils.catchers.dex_catcher import dex_catcher
 from app.api.routes.store_data import safe_load
+from app.config import URL_GAMEMASTER
 
 logger = logging.getLogger(__name__)
 

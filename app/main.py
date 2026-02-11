@@ -1,12 +1,13 @@
 import logging
 
-from fastapi import FastAPI, APIRouter
+from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
 from .api.routes import store_data
 from .api.routes import get_tier_list
 from .api.routes import search
 from .api.routes import remove_pokemon
+from .api.routes import get_meta
 
 logging.basicConfig(
     level=logging.INFO,
@@ -27,3 +28,4 @@ app.include_router(store_data.router)
 app.include_router(get_tier_list.router)
 app.include_router(search.router)
 app.include_router(remove_pokemon.router)
+app.include_router(get_meta.router)

@@ -4,7 +4,6 @@ import logging
 from ..auth_dependency import get_current_user
 from ...utils.supabase_utils.type_tier_list import get_pokemon_by_tier, get_rank_ones, get_bests_tier
 from app.services.dex_fetcher import dex_fetcher
-
 from app.config import TYPES
 
 logger = logging.getLogger(__name__)
