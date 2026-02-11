@@ -1,5 +1,4 @@
-from fastapi import APIRouter, Depends
-from ..auth_dependency import get_current_user
+from fastapi import APIRouter
 from app.utils.safe_load import safe_load
 from app.services.dex_fetcher import dex_fetcher
 from app.config import URL_GREAT, URL_ULTRA, URL_MASTER, TYPES
