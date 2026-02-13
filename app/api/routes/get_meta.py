@@ -4,18 +4,22 @@ from app.utils.safe_load import safe_load
 from app.services.dex_fetcher import dex_fetcher
 from app.config import URL_GREAT, URL_ULTRA, URL_MASTER, URL_GAMEMASTER, TYPES
 
+# Configuração básica do Logger
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
 router = APIRouter()
 
+# Tags que definem um Pokémon como "Especial"
 SPECIAL_TAGS = {"legendary", "mythical", "ultrabeast", "mega", "wildlegendary"}
 
+# 1. Carrega as Bases
 BASE_GREAT = safe_load("base_great.json", URL_GREAT)
 BASE_ULTRA = safe_load("base_ultra.json", URL_ULTRA)
 BASE_MASTER = safe_load("base_master.json", URL_MASTER)
 GAMEMASTER_DATA = safe_load("gamemaster.json", URL_GAMEMASTER) 
 
+# 2. Mapa de Metadados (Tipos, Tags e NOME)
 def build_metadata_map(gamemaster):
     """Constrói um mapa contendo Nome, Tipos e Tags para acesso O(1)."""
     meta_map = {}
@@ -28,15 +32,9 @@ def build_metadata_map(gamemaster):
     for p in data_list:
         s_id = p.get('speciesId', '')
         if s_id:
-            raw_name = p.get('speciesName', s_id)
-            
-            # --- MUDANÇA AQUI: Remove tudo do parêntese para frente ---
-            # Ex: "Charizard (Shadow)" vira "Charizard"
-            # Ex: "Oricorio (Pom-Pom)" vira "Oricorio"
-            final_name = raw_name.split('(')[0].strip()
-            
+            # MUDANÇA 1: Guardamos também o 'speciesName'
             meta_map[s_id] = {
-                "name": final_name, 
+                "name": p.get('speciesName', s_id), # Pega o nome real (fallback pro ID se falhar)
                 "types": p.get('types', []),
                 "tags": set(p.get('tags', [])) 
             }
@@ -63,16 +61,18 @@ def filter_top_six_by_type(base_data, poke_type, include_specials):
 
         poke_types = poke_data["types"]
         poke_tags = poke_data["tags"]
-        poke_name = poke_data["name"]
+        poke_name = poke_data["name"] # Recuperamos o nome real aqui
 
+        # --- LÓGICA DE FILTRO DE ESPECIAIS ---
         is_special = not poke_tags.isdisjoint(SPECIAL_TAGS)
 
         if not include_specials and is_special:
             continue
+        # -------------------------------------
 
         if poke_type in poke_types:
             top_six.append({
-                "nome": poke_name,
+                "nome": poke_name, # MUDANÇA 2: Usamos o nome real em vez do ID
                 "tipo": poke_types,
                 "rank_liga": rank
             })
