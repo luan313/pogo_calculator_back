@@ -30,7 +30,6 @@ def get_rank(pokemon_id: str, atk: int, df: int, hp: int, league: int):
     cpms = cpm_data.get("cpms", [])
     
     # 2. Busca os Stats Base do Pokémon
-    # No gamemaster do PvPoke, os pokémons ficam na chave "pokemon"
     pokemon_stats = next((p for p in gm.get("pokemon", []) if p.get("speciesId") == pokemon_id.lower()), None)
 
     if not pokemon_stats:
@@ -40,45 +39,62 @@ def get_rank(pokemon_id: str, atk: int, df: int, hp: int, league: int):
     base_stats = pokemon_stats.get("baseStats")
     b_atk, b_def, b_hp = base_stats["atk"], base_stats["def"], base_stats["hp"]
 
+    # --- INÍCIO DA CORREÇÃO ---
     def get_stat_product(a, d, h, limit):
         best_sp = 0
+        
+        # Lógica especial para Master League (Sem limite de CP)
+        if limit <= 0 or limit >= 10000:
+            final_cpm = cpms[-1] # Nível 50
+            
+            # Na Master, usamos o HP arredondado (floor)
+            hp_final = math.floor((b_hp + h) * final_cpm)
+            if hp_final < 10: hp_final = 10
+            
+            # Retorna o Stat Product direto
+            return (b_atk + a) * final_cpm * (b_def + d) * final_cpm * hp_final
+
         # Simula do nível 1 ao 50 (usando a tabela de CPM)
         for cpm in cpms:
-            # Fórmula oficial de CP:
-            # CP = floor((Atk * sqrt(Def) * sqrt(HP) * CPM^2) / 10)
+            # 1. Calcula os atributos "brutos"
             cur_atk = (b_atk + a) * cpm
             cur_def = (b_def + d) * cpm
-            cur_hp = (b_hp + h) * cpm
             
+            # CORREÇÃO CRÍTICA: O HP é arredondado para baixo ANTES de calcular o CP
+            cur_hp = math.floor((b_hp + h) * cpm)
+            if cur_hp < 10: cur_hp = 10
+
+            # 2. Fórmula oficial de CP: Floor( (Atk * Def^0.5 * HP_INTEIRO^0.5) / 10 )
             cp = math.floor((cur_atk * math.sqrt(cur_def) * math.sqrt(cur_hp)) / 10)
             
-            # Se for Master League (limit 0 ou >= 10000), usamos nível 50 (último CPM)
-            if limit <= 0 or limit >= 10000:
-                # Master League costuma ser o último CPM disponível (Level 50)
-                final_cpm = cpms[-1]
-                return (b_atk + a) * (b_def + d) * (b_hp + h) * (final_cpm ** 3)
-
             if cp <= limit:
-                best_sp = cur_atk * cur_def * math.floor(cur_hp) # Stat Product aproximado
+                # O Stat Product usa o HP arredondado
+                product = cur_atk * cur_def * cur_hp
+                if product > best_sp:
+                    best_sp = product
             else:
+                # Passou do limite da liga (ex: 2501 CP), para de verificar níveis mais altos
                 break
+                
         return best_sp
+    # --- FIM DA CORREÇÃO ---
 
-    # 3. Calcula o Stat Product do usuário
+    # 3. Calcula o Stat Product do Pokémon do usuário
     user_sp = get_stat_product(atk, df, hp, league)
 
-    # 4. Gera todos os 4096 Stat Products possíveis para este Pokémon nesta liga
+    # 4. Gera todas as 4096 combinações de IVs possíveis (0-15)
     all_products = []
     for i_a in range(16):
         for i_d in range(16):
             for i_h in range(16):
                 all_products.append(get_stat_product(i_a, i_d, i_h, league))
 
-    # 5. Ordena do maior para o menor e encontra a posição
+    # 5. Ordena do maior Stat Product para o menor (Rank 1 é o maior SP)
     all_products.sort(reverse=True)
     
     try:
-        # O Rank é o índice na lista ordenada + 1
+        # O Rank é a posição na lista + 1 (porque lista começa no índice 0)
+        # index() retorna a primeira aparição do valor (resolve empates corretamente dando o melhor rank)
         rank = all_products.index(user_sp) + 1
         logger.info(f"✅ Rank {rank} calculado localmente para {pokemon_id}")
         return rank
