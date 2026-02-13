@@ -28,10 +28,12 @@ def build_metadata_map(gamemaster):
     for p in data_list:
         s_id = p.get('speciesId', '')
         if s_id:
-            # --- MUDANÇA AQUI: Tratamento do nome (Shadow) -> Sombroso ---
             raw_name = p.get('speciesName', s_id)
-            # Substitui "(Shadow)" por "Sombroso", removendo os parênteses
-            final_name = raw_name.replace("(Shadow)", "Sombroso")
+            
+            # --- MUDANÇA AQUI: Remove tudo do parêntese para frente ---
+            # Ex: "Charizard (Shadow)" vira "Charizard"
+            # Ex: "Oricorio (Pom-Pom)" vira "Oricorio"
+            final_name = raw_name.split('(')[0].strip()
             
             meta_map[s_id] = {
                 "name": final_name, 
