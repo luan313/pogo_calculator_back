@@ -25,7 +25,7 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r requirements.txt
 
-      - name: Run update script
+      - name: Run update script (Base Data)
         env:
           SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
           SUPABASE_KEY: ${{ secrets.SUPABASE_KEY }}
@@ -33,13 +33,23 @@ jobs:
           export PYTHONPATH=$PYTHONPATH:$(pwd)
           python -m app.services.update_base
 
+      # --- NOVO PASSO ADICIONADO AQUI ---
+      - name: Run IV Rank Calculation
+        env:
+          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+          SUPABASE_KEY: ${{ secrets.SUPABASE_KEY }}
+        run: |
+          export PYTHONPATH=$PYTHONPATH:$(pwd)
+          python -m app.services.update_ivs
+      # ----------------------------------
+
       - name: Commit and push if changed
         run: |
           git config --global user.name 'Github Action'
           git config --global user.email 'action@github.com'
           git add app/data/*.json
           if git diff --cached --quiet; then
-            echo "Nenhuma mudança detectada."
+            echo "Nenhuma mudança detectada nos arquivos JSON."
           else
             git commit -m "Auto-update: Base stats e CPM [skip ci]"
             git push
