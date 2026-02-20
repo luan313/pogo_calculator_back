@@ -1,5 +1,5 @@
 {
-    "timestamp": "2026-02-15 16:52:51",
+    "timestamp": "2026-02-19 17:01:57",
     "id": "gamemaster",
     "title": "Default",
     "settings": {
@@ -3777,6 +3777,11 @@
                         "porygon_z",
                         "porygon_z_shadow",
                         "rotom_wash",
+                        "rotom_mow",
+                        "rotom",
+                        "rotom_fan",
+                        "rotom_frost",
+                        "rotom_heat",
                         "tepig",
                         "pignite",
                         "emboar",
@@ -3896,7 +3901,18 @@
                         "tinkatuff",
                         "tinkaton",
                         "flamigo",
-                        "tatsugiri_droopy"
+                        "tatsugiri_droopy",
+                        "sizzlipede",
+                        "centiskorch",
+                        "groudon",
+                        "deoxys",
+                        "deoxys_defense",
+                        "deoxys_attack",
+                        "deoxys_speed",
+                        "moltres_galarian",
+                        "ho_oh",
+                        "mew",
+                        "diancie"
                     ]
                 }
             ],
@@ -5333,23 +5349,6 @@
             "rules": [
                 "No CP limit.",
                 "Legendary Pok\u00e9mon,  Mythical Pok\u00e9mon,  and Ultra Beasts are not eligible."
-            ]
-        },
-        {
-            "title": "EUIC 2026 Championship Series Cup",
-            "cup": "euic2026",
-            "cp": 1500,
-            "meta": "euic2026",
-            "showCup": true,
-            "showFormat": true,
-            "showMeta": true,
-            "rules": [
-                "Pok\u00e9mon must be at or below 1, 500 CP to enter.",
-                "Only Bug-,  Dark-,  Normal-,  and Dragon-type Pok\u00e9mon are eligible.",
-                "Fighting-,  Flying-,  and Steel-type Pok\u00e9mon are not eligible.",
-                "Legendary Pok\u00e9mon,  Mythical Pok\u00e9mon,  Mega Pok\u00e9mon,  and Ultra Beasts are not eligible.",
-                "The following Pok\u00e9mon will be allowed: Seaking,  Politoed,  Milotic,  and Froslass.",
-                "The following Pok\u00e9mon will not be allowed: Wigglytuff,  CHansey,  Crustle,  Diggersby,  Ribombee,  Araquanid,  Turtonator,  Morgrem,  Morpeko"
             ]
         },
         {
