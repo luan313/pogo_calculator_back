@@ -1,5 +1,5 @@
 {
-    "timestamp": "2026-02-21 17:22:59",
+    "timestamp": "2026-02-22 16:24:44",
     "id": "gamemaster",
     "title": "Default",
     "settings": {
@@ -16275,7 +16275,7 @@
             ],
             "buddyDistance": 3,
             "thirdMoveCost": 50000,
-            "released": false,
+            "released": true,
             "family": {
                 "id": "FAMILY_BELLSPROUT",
                 "parent": "weepinbell"
@@ -81021,7 +81021,7 @@
             },
             "buddyDistance": 3,
             "thirdMoveCost": 50000,
-            "released": false,
+            "released": true,
             "family": {
                 "id": "FAMILY_INKAY",
                 "parent": "inkay"
