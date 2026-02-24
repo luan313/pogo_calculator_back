@@ -1,5 +1,5 @@
 {
-    "timestamp": "2026-02-22 16:24:44",
+    "timestamp": "2026-02-23 17:13:47",
     "id": "gamemaster",
     "title": "Default",
     "settings": {
@@ -353,32 +353,29 @@
                         "points": 1,
                         "pokemon": [
                             "altaria",
-                            "annihilape",
+                            "azumarill",
                             "blastoise",
                             "charjabug",
                             "clefable",
-                            "clodsire",
-                            "corsola_galarian",
                             "corviknight",
                             "cradily",
                             "empoleon",
-                            "feraligatr",
-                            "florges",
-                            "forretress",
                             "furret",
                             "gastrodon",
-                            "guzzlord",
+                            "gourgeist_average",
+                            "gourgeist_large",
+                            "gourgeist_small",
+                            "gourgeist_super",
                             "jellicent",
-                            "lickilicky",
+                            "lapras",
                             "ludicolo",
                             "malamar",
                             "marowak",
                             "moltres_galarian",
                             "ninetales_alolan",
-                            "primeape",
+                            "scizor",
                             "steelix",
-                            "talonflame",
-                            "wigglytuff"
+                            "stunfisk"
                         ]
                     }
                 ]
@@ -5375,6 +5372,23 @@
             "rules": [
                 "No CP limit.",
                 "Mega-Evolved Pok\u00e9mon are allowed."
+            ]
+        },
+        {
+            "title": "EUIC 2026 Championship Series Cup",
+            "cup": "euic2026",
+            "cp": 1500,
+            "meta": "euic2026",
+            "showCup": true,
+            "showFormat": true,
+            "showMeta": true,
+            "rules": [
+                "Pok\u00e9mon must be at or below 1, 500 CP to enter.",
+                "Only Bug-,  Dark-,  Normal-,  and Dragon-type Pok\u00e9mon are eligible.",
+                "Fighting-,  Flying-,  and Steel-type Pok\u00e9mon are not eligible.",
+                "Legendary Pok\u00e9mon,  Mythical Pok\u00e9mon,  Mega Pok\u00e9mon,  and Ultra Beasts are not eligible.",
+                "The following Pok\u00e9mon will be allowed: Seaking,  Politoed,  Milotic,  and Froslass.",
+                "The following Pok\u00e9mon will not be allowed: Wigglytuff,  CHansey,  Crustle,  Diggersby,  Ribombee,  Araquanid,  Turtonator,  Morgrem,  Morpeko"
             ]
         },
         {
