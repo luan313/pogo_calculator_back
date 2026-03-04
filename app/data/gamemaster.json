@@ -1,5 +1,5 @@
 {
-    "timestamp": "2026-02-23 17:13:47",
+    "timestamp": "2026-03-04 01:33:32",
     "id": "gamemaster",
     "title": "Default",
     "settings": {
@@ -3569,6 +3569,28 @@
             "presetOnly": true
         },
         {
+            "name": "kanto",
+            "title": "Kanto Cup",
+            "include": [
+                {
+                    "filterType": "dex",
+                    "values": [
+                        1,
+                        151
+                    ]
+                }
+            ],
+            "exclude": [
+                {
+                    "filterType": "tag",
+                    "values": [
+                        "mega"
+                    ]
+                }
+            ],
+            "partySize": 3
+        },
+        {
             "name": "laic2025",
             "title": "LAIC 2025 Championship Series Cup",
             "link": "https://laic.gg/competitor_info/pokemon_go/",
@@ -4781,6 +4803,38 @@
             ]
         },
         {
+            "name": "spring",
+            "title": "Spring Cup",
+            "include": [
+                {
+                    "filterType": "type",
+                    "values": [
+                        "water",
+                        "grass",
+                        "fairy"
+                    ]
+                }
+            ],
+            "exclude": [
+                {
+                    "filterType": "tag",
+                    "values": [
+                        "mega"
+                    ]
+                },
+                {
+                    "filterType": "id",
+                    "values": [
+                        "jumpluff",
+                        "roserade",
+                        "toxapex"
+                    ]
+                }
+            ],
+            "partySize": 3,
+            "presetOnly": true
+        },
+        {
             "name": "stygian",
             "title": "Devon Stygian Cup",
             "include": [
@@ -5345,51 +5399,17 @@
             "hideRankings": true,
             "rules": [
                 "No CP limit.",
-                "Legendary Pok\u00e9mon,  Mythical Pok\u00e9mon,  and Ultra Beasts are not eligible."
+                "Legendary Pok\u00e9mon, Mythical Pok\u00e9mon, and Ultra Beasts are not eligible."
             ]
         },
         {
-            "title": "Love Cup",
-            "cup": "love",
+            "title": "Kanto Cup",
+            "cup": "kanto",
             "cp": 1500,
-            "meta": "love",
+            "meta": "kanto",
             "showCup": true,
             "showFormat": true,
-            "showMeta": true,
-            "rules": [
-                "Pok\u00e9mon must be at or below 1, 500 CP to enter.",
-                "Only red- or pink-colored Pok\u00e9mon are eligible."
-            ]
-        },
-        {
-            "title": "Mega Master League",
-            "cup": "mega",
-            "cp": 10000,
-            "meta": "mega",
-            "showCup": true,
-            "showFormat": true,
-            "showMeta": true,
-            "rules": [
-                "No CP limit.",
-                "Mega-Evolved Pok\u00e9mon are allowed."
-            ]
-        },
-        {
-            "title": "EUIC 2026 Championship Series Cup",
-            "cup": "euic2026",
-            "cp": 1500,
-            "meta": "euic2026",
-            "showCup": true,
-            "showFormat": true,
-            "showMeta": true,
-            "rules": [
-                "Pok\u00e9mon must be at or below 1, 500 CP to enter.",
-                "Only Bug-,  Dark-,  Normal-,  and Dragon-type Pok\u00e9mon are eligible.",
-                "Fighting-,  Flying-,  and Steel-type Pok\u00e9mon are not eligible.",
-                "Legendary Pok\u00e9mon,  Mythical Pok\u00e9mon,  Mega Pok\u00e9mon,  and Ultra Beasts are not eligible.",
-                "The following Pok\u00e9mon will be allowed: Seaking,  Politoed,  Milotic,  and Froslass.",
-                "The following Pok\u00e9mon will not be allowed: Wigglytuff,  CHansey,  Crustle,  Diggersby,  Ribombee,  Araquanid,  Turtonator,  Morgrem,  Morpeko"
-            ]
+            "showMeta": true
         },
         {
             "title": "Battle Frontier (Majestic)",
@@ -8536,7 +8556,8 @@
                 "AIR_CUTTER",
                 "BRAVE_BIRD",
                 "HURRICANE",
-                "FEATHER_DANCE"
+                "FEATHER_DANCE",
+                "HEAT_WAVE"
             ],
             "defaultIVs": {
                 "cp500": [
@@ -8600,7 +8621,8 @@
                 "AIR_CUTTER",
                 "BRAVE_BIRD",
                 "HURRICANE",
-                "FEATHER_DANCE"
+                "FEATHER_DANCE",
+                "HEAT_WAVE"
             ],
             "defaultIVs": {
                 "cp500": [
@@ -8662,7 +8684,8 @@
                 "AIR_CUTTER",
                 "BRAVE_BIRD",
                 "HURRICANE",
-                "FEATHER_DANCE"
+                "FEATHER_DANCE",
+                "HEAT_WAVE"
             ],
             "defaultIVs": {
                 "cp500": [
@@ -25971,7 +25994,8 @@
             ],
             "fastMoves": [
                 "FROST_BREATH",
-                "ICE_SHARD"
+                "ICE_SHARD",
+                "POWDER_SNOW"
             ],
             "chargedMoves": [
                 "BLIZZARD",
@@ -26081,7 +26105,8 @@
             ],
             "fastMoves": [
                 "FROST_BREATH",
-                "ICE_SHARD"
+                "ICE_SHARD",
+                "POWDER_SNOW"
             ],
             "chargedMoves": [
                 "BLIZZARD",
@@ -26145,7 +26170,8 @@
                 "THUNDERBOLT",
                 "ZAP_CANNON",
                 "ANCIENT_POWER",
-                "DRILL_PECK"
+                "DRILL_PECK",
+                "HEAT_WAVE"
             ],
             "tags": [
                 "legendary",
@@ -26252,7 +26278,8 @@
                 "THUNDERBOLT",
                 "ZAP_CANNON",
                 "ANCIENT_POWER",
-                "DRILL_PECK"
+                "DRILL_PECK",
+                "HEAT_WAVE"
             ],
             "tags": [
                 "legendary",
@@ -26307,7 +26334,8 @@
                 "HEAT_WAVE",
                 "OVERHEAT",
                 "SKY_ATTACK",
-                "ANCIENT_POWER"
+                "ANCIENT_POWER",
+                "FLY"
             ],
             "tags": [
                 "legendary",
@@ -26416,7 +26444,8 @@
                 "HEAT_WAVE",
                 "OVERHEAT",
                 "SKY_ATTACK",
-                "ANCIENT_POWER"
+                "ANCIENT_POWER",
+                "FLY"
             ],
             "tags": [
                 "legendary",
@@ -29431,7 +29460,8 @@
                 "ANCIENT_POWER",
                 "DAZZLING_GLEAM",
                 "DRAINING_KISS",
-                "PSYSHOCK"
+                "PSYSHOCK",
+                "HEAT_WAVE"
             ],
             "defaultIVs": {
                 "cp500": [
@@ -33630,14 +33660,16 @@
             ],
             "fastMoves": [
                 "COUNTER",
-                "STRUGGLE_BUG"
+                "STRUGGLE_BUG",
+                "FURY_CUTTER"
             ],
             "chargedMoves": [
                 "CLOSE_COMBAT",
                 "EARTHQUAKE",
                 "MEGAHORN",
                 "ROCK_BLAST",
-                "UPPER_HAND"
+                "UPPER_HAND",
+                "ROCK_TOMB"
             ],
             "tags": [
                 "regional"
@@ -33681,14 +33713,16 @@
             ],
             "fastMoves": [
                 "COUNTER",
-                "STRUGGLE_BUG"
+                "STRUGGLE_BUG",
+                "FURY_CUTTER"
             ],
             "chargedMoves": [
                 "CLOSE_COMBAT",
                 "EARTHQUAKE",
                 "MEGAHORN",
                 "ROCK_BLAST",
-                "UPPER_HAND"
+                "UPPER_HAND",
+                "ROCK_TOMB"
             ],
             "tags": [
                 "regional",
@@ -44414,7 +44448,6 @@
             "level25CP": 1295,
             "tags": [
                 "shadoweligible",
-                "include1500",
                 "mega"
             ],
             "buddyDistance": 3,
@@ -44469,7 +44502,8 @@
             },
             "tags": [
                 "shadoweligible",
-                "shadow"
+                "shadow",
+                "include1500"
             ],
             "buddyDistance": 3,
             "thirdMoveCost": 50000,
@@ -44862,7 +44896,9 @@
                 "EARTHQUAKE",
                 "OVERHEAT",
                 "SOLAR_BEAM",
-                "EARTH_POWER"
+                "EARTH_POWER",
+                "SCORCHING_SANDS",
+                "ROCK_TOMB"
             ],
             "defaultIVs": {
                 "cp500": [
@@ -44918,7 +44954,9 @@
                 "EARTHQUAKE",
                 "OVERHEAT",
                 "SOLAR_BEAM",
-                "EARTH_POWER"
+                "EARTH_POWER",
+                "SCORCHING_SANDS",
+                "ROCK_TOMB"
             ],
             "defaultIVs": {
                 "cp500": [
@@ -44975,7 +45013,9 @@
                 "EARTHQUAKE",
                 "OVERHEAT",
                 "SOLAR_BEAM",
-                "EARTH_POWER"
+                "EARTH_POWER",
+                "SCORCHING_SANDS",
+                "ROCK_TOMB"
             ],
             "defaultIVs": {
                 "cp500": [
@@ -45608,7 +45648,8 @@
                 "EARTH_POWER",
                 "BOOMBURST",
                 "SCORCHING_SANDS",
-                "SAND_TOMB"
+                "SAND_TOMB",
+                "TWISTER"
             ],
             "defaultIVs": {
                 "cp500": [
@@ -45670,7 +45711,8 @@
                 "EARTH_POWER",
                 "BOOMBURST",
                 "SCORCHING_SANDS",
-                "SAND_TOMB"
+                "SAND_TOMB",
+                "TWISTER"
             ],
             "defaultIVs": {
                 "cp500": [
@@ -55009,7 +55051,8 @@
             ],
             "fastMoves": [
                 "BUG_BITE",
-                "CONFUSION"
+                "CONFUSION",
+                "SUCKER_PUNCH"
             ],
             "chargedMoves": [
                 "BUG_BUZZ",
@@ -55059,7 +55102,8 @@
             ],
             "fastMoves": [
                 "BUG_BITE",
-                "CONFUSION"
+                "CONFUSION",
+                "SUCKER_PUNCH"
             ],
             "chargedMoves": [
                 "BUG_BUZZ",
@@ -55110,7 +55154,8 @@
             "fastMoves": [
                 "BUG_BITE",
                 "CONFUSION",
-                "METAL_SOUND"
+                "METAL_SOUND",
+                "SUCKER_PUNCH"
             ],
             "chargedMoves": [
                 "BUG_BUZZ",
@@ -57633,7 +57678,8 @@
                 "OUTRAGE",
                 "SAND_TOMB",
                 "EARTH_POWER",
-                "BREAKING_SWIPE"
+                "BREAKING_SWIPE",
+                "TWISTER"
             ],
             "eliteMoves": [
                 "EARTH_POWER"
@@ -57697,7 +57743,8 @@
                 "OUTRAGE",
                 "SAND_TOMB",
                 "EARTH_POWER",
-                "BREAKING_SWIPE"
+                "BREAKING_SWIPE",
+                "TWISTER"
             ],
             "eliteMoves": [
                 "EARTH_POWER"
@@ -57752,7 +57799,8 @@
                 "OUTRAGE",
                 "SAND_TOMB",
                 "EARTH_POWER",
-                "BREAKING_SWIPE"
+                "BREAKING_SWIPE",
+                "TWISTER"
             ],
             "eliteMoves": [
                 "EARTH_POWER"
@@ -60281,7 +60329,8 @@
                 "AERIAL_ACE",
                 "EARTHQUAKE",
                 "NIGHT_SLASH",
-                "SAND_TOMB"
+                "SAND_TOMB",
+                "ACROBATICS"
             ],
             "defaultIVs": {
                 "cp500": [
@@ -60337,7 +60386,8 @@
                 "AERIAL_ACE",
                 "EARTHQUAKE",
                 "NIGHT_SLASH",
-                "SAND_TOMB"
+                "SAND_TOMB",
+                "ACROBATICS"
             ],
             "defaultIVs": {
                 "cp500": [
@@ -61404,7 +61454,8 @@
             "chargedMoves": [
                 "OMINOUS_WIND",
                 "THUNDER",
-                "THUNDERBOLT"
+                "THUNDERBOLT",
+                "LEAF_STORM"
             ],
             "defaultIVs": {
                 "cp500": [
@@ -68412,7 +68463,8 @@
                 "MEGAHORN",
                 "SLUDGE_BOMB",
                 "GYRO_BALL",
-                "X_SCISSOR"
+                "X_SCISSOR",
+                "AQUA_TAIL"
             ],
             "defaultIVs": {
                 "cp500": [
@@ -68474,7 +68526,8 @@
                 "MEGAHORN",
                 "SLUDGE_BOMB",
                 "GYRO_BALL",
-                "X_SCISSOR"
+                "X_SCISSOR",
+                "AQUA_TAIL"
             ],
             "defaultIVs": {
                 "cp500": [
@@ -83955,7 +84008,8 @@
                 "HYDRO_PUMP",
                 "OVERHEAT",
                 "EARTH_POWER",
-                "SLUDGE_BOMB"
+                "SLUDGE_BOMB",
+                "SCALD"
             ],
             "defaultIVs": {
                 "cp500": [
@@ -90192,7 +90246,8 @@
             "fastMoves": [
                 "SUCKER_PUNCH",
                 "COUNTER",
-                "POISON_JAB"
+                "POISON_JAB",
+                "SHADOW_CLAW"
             ],
             "chargedMoves": [
                 "CLOSE_COMBAT",
@@ -101047,7 +101102,7 @@
             "tags": [
                 "shadoweligible"
             ],
-            "searchPriority": 6
+            "searchPriority": 7
         },
         {
             "dex": 979,
@@ -101110,7 +101165,7 @@
             "tags": [
                 "shadow"
             ],
-            "searchPriority": 7
+            "searchPriority": 6
         },
         {
             "dex": 980,
@@ -103519,19 +103574,6 @@
             "turns": 3
         },
         {
-            "moveId": "AEGISLASH_CHARGE_AIR_SLASH",
-            "name": "Air Slash",
-            "abbreviation": "AS",
-            "type": "flying",
-            "power": 0,
-            "energy": 0,
-            "energyGain": 6,
-            "cooldown": 1500,
-            "archetype": "Low Quality",
-            "turns": 3,
-            "unlisted": true
-        },
-        {
             "moveId": "ANCIENT_POWER",
             "name": "Ancient Power",
             "type": "rock",
@@ -103967,11 +104009,11 @@
             "moveId": "BULLET_PUNCH",
             "name": "Bullet Punch",
             "type": "steel",
-            "power": 8,
+            "power": 7,
             "energy": 0,
             "energyGain": 7,
             "cooldown": 1000,
-            "archetype": "Multipurpose",
+            "archetype": "General",
             "turns": 2
         },
         {
@@ -104383,7 +104425,7 @@
             "name": "Drain Punch",
             "abbreviation": "DrP",
             "type": "fighting",
-            "power": 20,
+            "power": 40,
             "energy": 40,
             "energyGain": 0,
             "cooldown": 500,
@@ -104983,11 +105025,11 @@
             "moveId": "HEAT_WAVE",
             "name": "Heat Wave",
             "type": "fire",
-            "power": 95,
-            "energy": 75,
+            "power": 75,
+            "energy": 45,
             "energyGain": 0,
             "cooldown": 500,
-            "archetype": "High Energy",
+            "archetype": "General",
             "turns": 1
         },
         {
@@ -105582,11 +105624,11 @@
             "moveId": "LOW_KICK",
             "name": "Low Kick",
             "type": "fighting",
-            "power": 4,
+            "power": 5,
             "energy": 0,
-            "energyGain": 5,
+            "energyGain": 8,
             "cooldown": 1000,
-            "archetype": "Low Quality",
+            "archetype": "Fast Charge",
             "turns": 2
         },
         {
@@ -105862,20 +105904,20 @@
             "moveId": "MUD_BOMB",
             "name": "Mud Bomb",
             "type": "ground",
-            "power": 60,
-            "energy": 40,
+            "power": 65,
+            "energy": 45,
             "energyGain": 0,
             "cooldown": 500,
-            "archetype": "Spam/Bait",
+            "archetype": "General",
             "turns": 1
         },
         {
             "moveId": "MUD_SHOT",
             "name": "Mud Shot",
             "type": "ground",
-            "power": 4,
+            "power": 3,
             "energy": 0,
-            "energyGain": 8,
+            "energyGain": 9,
             "cooldown": 1000,
             "archetype": "Fast Charge",
             "turns": 2
@@ -105885,11 +105927,11 @@
             "name": "Mud Slap",
             "abbreviation": "MSl",
             "type": "ground",
-            "power": 12,
+            "power": 11,
             "energy": 0,
             "energyGain": 10,
             "cooldown": 1500,
-            "archetype": "Multipurpose",
+            "archetype": "Heavy Damage",
             "turns": 3
         },
         {
@@ -105947,7 +105989,7 @@
             "energyGain": 0,
             "cooldown": 500,
             "buffs": [
-                2,
+                1,
                 0
             ],
             "buffTarget": "self",
@@ -106345,25 +106387,12 @@
             "moveId": "PSYCHO_CUT",
             "name": "Psycho Cut",
             "type": "psychic",
-            "power": 3,
+            "power": 4,
             "energy": 0,
             "energyGain": 9,
             "cooldown": 1000,
             "archetype": "Fast Charge",
             "turns": 2
-        },
-        {
-            "moveId": "AEGISLASH_CHARGE_PSYCHO_CUT",
-            "name": "Psycho Cut",
-            "abbreviation": "PC",
-            "type": "psychic",
-            "power": 0,
-            "energy": 0,
-            "energyGain": 6,
-            "cooldown": 1000,
-            "archetype": "Low Quality",
-            "turns": 2,
-            "unlisted": true
         },
         {
             "moveId": "PSYSHOCK",
@@ -106399,6 +106428,17 @@
             "energyGain": 4,
             "cooldown": 500,
             "archetype": "Fast Charge",
+            "turns": 1
+        },
+        {
+            "moveId": "PYRO_BALL",
+            "name": "Pyro Ball",
+            "type": "fire",
+            "power": 75,
+            "energy": 40,
+            "energyGain": 0,
+            "cooldown": 500,
+            "archetype": "Spam/Bait",
             "turns": 1
         },
         {
@@ -106542,7 +106582,7 @@
             "moveId": "ROCK_TOMB",
             "name": "Rock Tomb",
             "type": "rock",
-            "power": 80,
+            "power": 75,
             "energy": 50,
             "energyGain": 0,
             "cooldown": 500,
@@ -106641,7 +106681,7 @@
             "moveId": "SAND_TOMB",
             "name": "Sand Tomb",
             "type": "ground",
-            "power": 25,
+            "power": 40,
             "energy": 40,
             "energyGain": 0,
             "cooldown": 500,
@@ -106923,7 +106963,7 @@
             "moveId": "SMACK_DOWN",
             "name": "Smack Down",
             "type": "rock",
-            "power": 12,
+            "power": 11,
             "energy": 0,
             "energyGain": 8,
             "cooldown": 1500,
@@ -107424,11 +107464,11 @@
             "name": "Twister",
             "abbreviation": "Tw",
             "type": "dragon",
-            "power": 45,
-            "energy": 45,
+            "power": 70,
+            "energy": 40,
             "energyGain": 0,
             "cooldown": 500,
-            "archetype": "General",
+            "archetype": "Spam/Bait",
             "turns": 1
         },
         {
@@ -107486,7 +107526,7 @@
             "name": "Volt Tackle",
             "type": "electric",
             "power": 90,
-            "energy": 50,
+            "energy": 40,
             "energyGain": 0,
             "cooldown": 500,
             "buffs": [
@@ -107519,9 +107559,9 @@
             "moveId": "WATERFALL",
             "name": "Waterfall",
             "type": "water",
-            "power": 12,
+            "power": 11,
             "energy": 0,
-            "energyGain": 8,
+            "energyGain": 10,
             "cooldown": 1500,
             "archetype": "Heavy Damage",
             "turns": 3
@@ -107668,7 +107708,7 @@
             "type": "flying",
             "power": 5,
             "energy": 0,
-            "energyGain": 7,
+            "energyGain": 8,
             "cooldown": 1000,
             "archetype": "Fast Charge",
             "turns": 2
@@ -107740,6 +107780,32 @@
             "cooldown": 1500,
             "archetype": "Low Quality",
             "turns": 3
+        },
+        {
+            "moveId": "AEGISLASH_CHARGE_AIR_SLASH",
+            "name": "Air Slash",
+            "abbreviation": "AS",
+            "type": "flying",
+            "power": 0,
+            "energy": 0,
+            "energyGain": 6,
+            "cooldown": 1500,
+            "archetype": "Low Quality",
+            "turns": 3,
+            "unlisted": true
+        },
+        {
+            "moveId": "AEGISLASH_CHARGE_PSYCHO_CUT",
+            "name": "Psycho Cut",
+            "abbreviation": "PC",
+            "type": "psychic",
+            "power": 0,
+            "energy": 0,
+            "energyGain": 6,
+            "cooldown": 1000,
+            "archetype": "Low Quality",
+            "turns": 2,
+            "unlisted": true
         }
     ]
 }
