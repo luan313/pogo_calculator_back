@@ -1,5 +1,5 @@
 {
-    "timestamp": "2026-03-04 01:33:32",
+    "timestamp": "2026-03-06 20:03:45",
     "id": "gamemaster",
     "title": "Default",
     "settings": {
@@ -5399,7 +5399,7 @@
             "hideRankings": true,
             "rules": [
                 "No CP limit.",
-                "Legendary Pok\u00e9mon, Mythical Pok\u00e9mon, and Ultra Beasts are not eligible."
+                "Legendary Pok\u00e9mon,  Mythical Pok\u00e9mon,  and Ultra Beasts are not eligible."
             ]
         },
         {
@@ -5409,7 +5409,25 @@
             "meta": "kanto",
             "showCup": true,
             "showFormat": true,
-            "showMeta": true
+            "showMeta": true,
+            "rules": [
+                "Pok\u00e9mon must be at or below 1, 500 CP to enter.",
+                "Only Pok\u00e9mon with a Pok\u00e9dex number between #001 and #151 are eligible."
+            ]
+        },
+        {
+            "title": "Spring Cup",
+            "cup": "spring",
+            "cp": 1500,
+            "meta": "spring",
+            "showCup": true,
+            "showFormat": true,
+            "showMeta": true,
+            "rules": [
+                "Pok\u00e9mon must be at or below 1, 500 CP to enter.",
+                "Only Water-,  Grass-,  and Fairy-type Pok\u00e9mon are eligible.",
+                "The following Pokemon are not allowed: Jumpluff,  Roserade,  Toxapex"
+            ]
         },
         {
             "title": "Battle Frontier (Majestic)",
