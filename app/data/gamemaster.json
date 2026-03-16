@@ -1,5 +1,5 @@
 {
-    "timestamp": "2026-03-14 02:37:42",
+    "timestamp": "2026-03-15 01:58:49",
     "id": "gamemaster",
     "title": "Default",
     "settings": {
@@ -3890,13 +3890,6 @@
             ],
             "exclude": [
                 {
-                    "filterType": "id",
-                    "values": [
-                        "gligar",
-                        "stunfisk_galarian"
-                    ]
-                },
-                {
                     "filterType": "tag",
                     "values": [
                         "mega"
@@ -5737,20 +5730,7 @@
             "hideRankings": true,
             "rules": [
                 "No CP limit.",
-                "Legendary Pok\u00e9mon,  Mythical Pok\u00e9mon,  and Ultra Beasts are not eligible."
-            ]
-        },
-        {
-            "title": "Kanto Cup",
-            "cup": "kanto",
-            "cp": 1500,
-            "meta": "kanto",
-            "showCup": true,
-            "showFormat": true,
-            "showMeta": true,
-            "rules": [
-                "Pok\u00e9mon must be at or below 1, 500 CP to enter.",
-                "Only Pok\u00e9mon with a Pok\u00e9dex number between #001 and #151 are eligible."
+                "Legendary Pok\u00e9mon, Mythical Pok\u00e9mon, and Ultra Beasts are not eligible."
             ]
         },
         {
@@ -5762,9 +5742,22 @@
             "showFormat": true,
             "showMeta": true,
             "rules": [
-                "Pok\u00e9mon must be at or below 1, 500 CP to enter.",
-                "Only Water-,  Grass-,  and Fairy-type Pok\u00e9mon are eligible.",
-                "The following Pokemon are not allowed: Jumpluff,  Roserade,  Toxapex"
+                "Pok\u00e9mon must be at or below 1,500 CP to enter.",
+                "Only Water-, Grass-, and Fairy-type Pok\u00e9mon are eligible.",
+                "The following Pokemon are not allowed: Jumpluff, Roserade, Toxapex"
+            ]
+        },
+        {
+            "title": "Jungle Cup",
+            "cup": "jungle",
+            "cp": 1500,
+            "meta": "jungle",
+            "showCup": true,
+            "showFormat": true,
+            "showMeta": true,
+            "rules": [
+                "Pok\u00e9mon must be at or below 1,500 CP to enter.",
+                "Only Normal-, Grass-, Electric-, Poison-, Ground-, Flying-, Bug-, and Dark-type Pok\u00e9mon are eligible."
             ]
         },
         {
@@ -89154,12 +89147,12 @@
             ],
             "fastMoves": [
                 "SHADOW_CLAW",
-                "CHARM"
+                "HEX"
             ],
             "chargedMoves": [
                 "SHADOW_SNEAK",
                 "PLAY_ROUGH",
-                "SHADOW_BALL"
+                "THUNDER"
             ],
             "defaultIVs": {
                 "cp500": [
@@ -91839,7 +91832,7 @@
             },
             "buddyDistance": 1,
             "thirdMoveCost": 10000,
-            "released": false,
+            "released": true,
             "family": {
                 "id": "FAMILY_BLIPBUG",
                 "evolutions": [
@@ -91890,7 +91883,7 @@
             },
             "buddyDistance": 1,
             "thirdMoveCost": 10000,
-            "released": false,
+            "released": true,
             "family": {
                 "id": "FAMILY_BLIPBUG",
                 "parent": "blipbug",
@@ -91914,11 +91907,13 @@
             ],
             "fastMoves": [
                 "STRUGGLE_BUG",
-                "CONFUSION"
+                "CONFUSION",
+                "PSYCHO_CUT"
             ],
             "chargedMoves": [
                 "BUG_BUZZ",
-                "PSYCHIC"
+                "PSYCHIC",
+                "PSYSHOCK"
             ],
             "defaultIVs": {
                 "cp500": [
@@ -91948,7 +91943,7 @@
             },
             "buddyDistance": 1,
             "thirdMoveCost": 10000,
-            "released": false,
+            "released": true,
             "family": {
                 "id": "FAMILY_BLIPBUG",
                 "parent": "dottler"
