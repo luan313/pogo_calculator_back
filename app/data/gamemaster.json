@@ -1,5 +1,5 @@
 {
-    "timestamp": "2026-04-08 17:11:08",
+    "timestamp": "2026-04-11 16:16:16",
     "id": "gamemaster",
     "title": "Default",
     "settings": {
@@ -2963,20 +2963,6 @@
             "rules": [
                 "No CP limit.",
                 "Legendary Pok\u00e9mon,  Mythical Pok\u00e9mon,  and Ultra Beasts are not eligible."
-            ]
-        },
-        {
-            "title": "Electric Cup",
-            "cup": "electric",
-            "cp": 1500,
-            "meta": "electric",
-            "showCup": true,
-            "showFormat": true,
-            "showMeta": true,
-            "rules": [
-                "Pok\u00e9mon must be at or below 1, 500 CP to enter.",
-                "Only Electric-type Pok\u00e9mon are eligible.",
-                "The following Pokemon are not allowed: Stunfisk,  Heliolisk,  Charjabug,  Vikavolt"
             ]
         },
         {
@@ -86663,7 +86649,6 @@
                     13
                 ]
             },
-            "levelFloor": 20,
             "buddyDistance": 5,
             "thirdMoveCost": 50000,
             "released": true
