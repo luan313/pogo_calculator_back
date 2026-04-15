@@ -1,5 +1,5 @@
 {
-    "timestamp": "2026-04-11 16:16:16",
+    "timestamp": "2026-04-14 18:14:43",
     "id": "gamemaster",
     "title": "Default",
     "settings": {
@@ -2800,6 +2800,67 @@
             "excludeLowPokemon": 1
         },
         {
+            "name": "naic2026",
+            "title": "NAIC 2026 Championship Series Cup",
+            "include": [
+                {
+                    "filterType": "type",
+                    "values": [
+                        "fairy",
+                        "normal",
+                        "psychic",
+                        "water"
+                    ]
+                }
+            ],
+            "exclude": [
+                {
+                    "filterType": "tag",
+                    "values": [
+                        "mega"
+                    ]
+                },
+                {
+                    "filterType": "type",
+                    "values": [
+                        "dark",
+                        "grass",
+                        "steel"
+                    ]
+                },
+                {
+                    "filterType": "id",
+                    "values": [
+                        "araquanid",
+                        "carbink",
+                        "chansey",
+                        "chinchou",
+                        "claydol",
+                        "clefable",
+                        "cresselia",
+                        "dedenne",
+                        "diggersby",
+                        "farfetchd",
+                        "furret",
+                        "gastrodon",
+                        "golisopod",
+                        "greedent",
+                        "jellicent",
+                        "lanturn",
+                        "lickilicky",
+                        "lickitung",
+                        "lugia",
+                        "medicham",
+                        "oranguru",
+                        "poliwrath",
+                        "rotom_wash",
+                        "toxapex",
+                        "wigglytuff"
+                    ]
+                }
+            ]
+        },
+        {
             "name": "premier",
             "title": "Premier Cup",
             "include": [],
@@ -2966,6 +3027,20 @@
             ]
         },
         {
+            "title": "Spring Cup",
+            "cup": "spring",
+            "cp": 1500,
+            "meta": "spring",
+            "showCup": true,
+            "showFormat": true,
+            "showMeta": true,
+            "rules": [
+                "Pok\u00e9mon must be at or below 1, 500 CP to enter.",
+                "Only Water-,  Grass-,  and Fairy-type Pok\u00e9mon are eligible.",
+                "The following Pokemon are not allowed: Jumpluff,  Roserade,  Toxapex"
+            ]
+        },
+        {
             "title": "Fantasy Cup",
             "cup": "fantasy",
             "cp": 1500,
@@ -2979,17 +3054,18 @@
             ]
         },
         {
-            "title": "Spring Cup",
-            "cup": "spring",
+            "title": "NAIC 2026 Championship Series Cup",
+            "cup": "naic2026",
             "cp": 1500,
-            "meta": "spring",
+            "meta": "naic2026",
             "showCup": true,
             "showFormat": true,
             "showMeta": true,
             "rules": [
                 "Pok\u00e9mon must be at or below 1, 500 CP to enter.",
-                "Only Water-,  Grass-,  and Fairy-type Pok\u00e9mon are eligible.",
-                "The following Pokemon are not allowed: Junpluff,  Roserade,  Toxapex"
+                "Only Fairy-,  Normal-,  Psychic- and Water-type Pok\u00e9mon are eligible.",
+                "The following types are not allowed: Dark,  Grass,  Steel",
+                "The following Pokemon are not allowed: Araquanid,  Carbink,  Chansey,  Chinchou,  Claydol,  Clefable,  Cresselia,  Dedenne,  Diggersby,  Farfetch'd,  Gastrodon,  Golisopod,  Greedent,  Jellicent,  Lanturn,  Lickilicky,  Lickitung,  Lugia,  Medicham,  Oranguru,  Poliwrath"
             ]
         },
         {
@@ -90149,7 +90225,7 @@
             },
             "buddyDistance": 3,
             "thirdMoveCost": 50000,
-            "released": false,
+            "released": true,
             "family": {
                 "id": "FAMILY_SILICOBRA",
                 "evolutions": [
@@ -90202,7 +90278,7 @@
             },
             "buddyDistance": 3,
             "thirdMoveCost": 50000,
-            "released": false,
+            "released": true,
             "family": {
                 "id": "FAMILY_SILICOBRA",
                 "parent": "silicobra"
