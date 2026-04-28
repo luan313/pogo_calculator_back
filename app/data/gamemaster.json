@@ -1,5 +1,5 @@
 {
-    "timestamp": "2026-04-14 18:14:43",
+    "timestamp": "2026-04-27 21:40:41",
     "id": "gamemaster",
     "title": "Default",
     "settings": {
@@ -3027,20 +3027,6 @@
             ]
         },
         {
-            "title": "Spring Cup",
-            "cup": "spring",
-            "cp": 1500,
-            "meta": "spring",
-            "showCup": true,
-            "showFormat": true,
-            "showMeta": true,
-            "rules": [
-                "Pok\u00e9mon must be at or below 1, 500 CP to enter.",
-                "Only Water-,  Grass-,  and Fairy-type Pok\u00e9mon are eligible.",
-                "The following Pokemon are not allowed: Jumpluff,  Roserade,  Toxapex"
-            ]
-        },
-        {
             "title": "Fantasy Cup",
             "cup": "fantasy",
             "cp": 1500,
@@ -3051,6 +3037,19 @@
             "rules": [
                 "Pok\u00e9mon must be at or below 1, 500 CP to enter.",
                 "Only Dragon-,  Steel-,  and Fairy-type Pok\u00e9mon are eligible."
+            ]
+        },
+        {
+            "title": "Jungle Cup",
+            "cup": "jungle",
+            "cp": 1500,
+            "meta": "jungle",
+            "showCup": true,
+            "showFormat": true,
+            "showMeta": true,
+            "rules": [
+                "Pok\u00e9mon must be at or below 1, 500 CP to enter.",
+                "Only Normal-,  Grass-,  Electric-,  Poison-,  Ground-,  Flying-,  Bug-,  and Dark-type Pok\u00e9mon are eligible."
             ]
         },
         {
@@ -74098,7 +74097,8 @@
             },
             "tags": [
                 "shadow"
-            ]
+            ],
+            "searchPriority": 2
         },
         {
             "dex": 636,
@@ -98172,7 +98172,8 @@
             },
             "buddyDistance": 5,
             "thirdMoveCost": 75000,
-            "released": false
+            "levelFloor": 20,
+            "released": true
         },
         {
             "dex": 969,
