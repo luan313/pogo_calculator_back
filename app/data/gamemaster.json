@@ -1,5 +1,5 @@
 {
-    "timestamp": "2026-05-15 00:25:19",
+    "timestamp": "2026-05-21 02:54:33",
     "id": "gamemaster",
     "title": "Default",
     "settings": {
@@ -3363,32 +3363,6 @@
             "rules": [
                 "No CP limit.",
                 "Legendary Pok\u00e9mon,  Mythical Pok\u00e9mon,  and Ultra Beasts are not eligible."
-            ]
-        },
-        {
-            "title": "Fantasy Cup",
-            "cup": "fantasy",
-            "cp": 1500,
-            "meta": "fantasy",
-            "showCup": true,
-            "showFormat": true,
-            "showMeta": true,
-            "rules": [
-                "Pok\u00e9mon must be at or below 1, 500 CP to enter.",
-                "Only Dragon-,  Steel-,  and Fairy-type Pok\u00e9mon are eligible."
-            ]
-        },
-        {
-            "title": "Jungle Cup",
-            "cup": "jungle",
-            "cp": 1500,
-            "meta": "jungle",
-            "showCup": true,
-            "showFormat": true,
-            "showMeta": true,
-            "rules": [
-                "Pok\u00e9mon must be at or below 1, 500 CP to enter.",
-                "Only Normal-,  Grass-,  Electric-,  Poison-,  Ground-,  Flying-,  Bug-,  and Dark-type Pok\u00e9mon are eligible."
             ]
         },
         {
@@ -99470,10 +99444,10 @@
                     13
                 ],
                 "cp1500": [
-                    20,
-                    1,
-                    1,
-                    2
+                    18.5,
+                    6,
+                    13,
+                    14
                 ],
                 "cp2500": [
                     32,
@@ -99485,7 +99459,7 @@
             "buddyDistance": 5,
             "thirdMoveCost": 75000,
             "released": true,
-            "levelFloor": 20
+            "levelFloor": 15
         },
         {
             "dex": 978,
