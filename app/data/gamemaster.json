@@ -1,5 +1,5 @@
 {
-    "timestamp": "2026-05-21 02:54:33",
+    "timestamp": "2026-05-29 15:20:29",
     "id": "gamemaster",
     "title": "Default",
     "settings": {
@@ -89074,31 +89074,38 @@
             "chargedMoves": [
                 "THUNDER_PUNCH",
                 "DISCHARGE",
-                "WILD_CHARGE"
+                "WILD_CHARGE",
+                "PLASMA_FISTS"
             ],
             "defaultIVs": {
                 "cp500": [
                     5.5,
-                    9,
-                    14,
-                    15
+                    12,
+                    11,
+                    12
                 ],
                 "cp1500": [
-                    16,
-                    5,
-                    14,
-                    15
+                    15.5,
+                    11,
+                    15,
+                    13
                 ],
                 "cp2500": [
-                    27,
-                    4,
-                    10,
-                    15
+                    26.5,
+                    11,
+                    11,
+                    10
                 ]
             },
             "buddyDistance": 20,
             "thirdMoveCost": 100000,
-            "released": false
+            "released": true,
+            "levelFloor": 15,
+            "tags": [
+                "mythical",
+                "untradeable"
+            ],
+            "searchPriority": 2
         },
         {
             "dex": 808,
@@ -104764,6 +104771,17 @@
             "energyGain": 0,
             "cooldown": 500,
             "archetype": "High Energy",
+            "turns": 1
+        },
+        {
+            "moveId": "PLASMA_FISTS",
+            "name": "Plasma Fists",
+            "type": "electric",
+            "power": 60,
+            "energy": 35,
+            "energyGain": 0,
+            "cooldown": 500,
+            "archetype": "Spam/Bait",
             "turns": 1
         },
         {
