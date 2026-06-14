@@ -1,5 +1,5 @@
 {
-    "timestamp": "2026-06-10 01:32:25",
+    "timestamp": "2026-06-13 16:34:59",
     "id": "gamemaster",
     "title": "Default",
     "settings": {
@@ -959,6 +959,12 @@
             "excludeLowPokemon": 1
         },
         {
+            "name": "mega",
+            "title": "All Pokemon",
+            "include": [],
+            "exclude": []
+        },
+        {
             "name": "naic2026",
             "title": "NAIC 2026 Championship Series Cup",
             "include": [
@@ -1181,7 +1187,7 @@
             "hideRankings": true,
             "rules": [
                 "No CP limit.",
-                "Legendary Pok\u00e9mon,  Mythical Pok\u00e9mon,  and Ultra Beasts are not eligible."
+                "Legendary Pok\u00e9mon, Mythical Pok\u00e9mon, and Ultra Beasts are not eligible."
             ]
         },
         {
@@ -1193,10 +1199,10 @@
             "showFormat": true,
             "showMeta": true,
             "rules": [
-                "Pok\u00e9mon must be at or below 1, 500 CP to enter.",
-                "Only Fairy-,  Normal-,  Psychic- and Water-type Pok\u00e9mon are eligible.",
-                "The following types are not allowed: Dark,  Grass,  Steel",
-                "The following Pokemon are not allowed: Araquanid,  Carbink,  Chansey,  Chinchou,  Claydol,  Clefable,  Cresselia,  Dedenne,  Diggersby,  Farfetch'd,  Gastrodon,  Golisopod,  Greedent,  Jellicent,  Lanturn,  Lickilicky,  Lickitung,  Lugia,  Medicham,  Oranguru,  Poliwrath"
+                "Pok\u00e9mon must be at or below 1,500 CP to enter.",
+                "Only Fairy-, Normal-, Psychic- and Water-type Pok\u00e9mon are eligible.",
+                "The following types are not allowed: Dark, Grass, Steel",
+                "The following Pokemon are not allowed: Araquanid, Carbink, Chansey, Chinchou, Claydol, Clefable, Cresselia, Dedenne, Diggersby, Farfetch'd, Gastrodon, Golisopod, Greedent, Jellicent, Lanturn, Lickilicky, Lickitung, Lugia, Medicham, Oranguru, Poliwrath"
             ]
         },
         {
@@ -1208,9 +1214,22 @@
             "showFormat": true,
             "showMeta": true,
             "rules": [
-                "Pok\u00e9mon must be at or below 1, 500 CP to enter.",
-                "Only Normal-,  Fire-,  Grass-,  and Ground-type Pok\u00e9mon are eligible.",
+                "Pok\u00e9mon must be at or below 1,500 CP to enter.",
+                "Only Normal-, Fire-, Grass-, and Ground-type Pok\u00e9mon are eligible.",
                 "The following Pokemon are not allowed: Charizard"
+            ]
+        },
+        {
+            "title": "Mega Master League",
+            "cup": "mega",
+            "cp": 10000,
+            "meta": "mega",
+            "showCup": true,
+            "showFormat": true,
+            "showMeta": true,
+            "rules": [
+                "No CP limit.",
+                "Mega Evolutions are eligible."
             ]
         },
         {
@@ -22866,7 +22885,8 @@
             ],
             "fastMoves": [
                 "CONFUSION",
-                "PSYCHO_CUT"
+                "PSYCHO_CUT",
+                "COUNTER"
             ],
             "chargedMoves": [
                 "FLAMETHROWER",
@@ -22908,6 +22928,9 @@
                 "SHADOW_BALL",
                 "HYPER_BEAM"
             ],
+            "legacyMoves": [
+                "COUNTER"
+            ],
             "buddyDistance": 20,
             "thirdMoveCost": 100000,
             "released": true,
@@ -22930,7 +22953,8 @@
             ],
             "fastMoves": [
                 "CONFUSION",
-                "PSYCHO_CUT"
+                "PSYCHO_CUT",
+                "COUNTER"
             ],
             "chargedMoves": [
                 "FLAMETHROWER",
@@ -22973,6 +22997,9 @@
                 "SHADOW_BALL",
                 "HYPER_BEAM"
             ],
+            "legacyMoves": [
+                "COUNTER"
+            ],
             "buddyDistance": 20,
             "thirdMoveCost": 100000,
             "released": true,
@@ -22993,7 +23020,8 @@
             ],
             "fastMoves": [
                 "CONFUSION",
-                "PSYCHO_CUT"
+                "PSYCHO_CUT",
+                "COUNTER"
             ],
             "chargedMoves": [
                 "FLAMETHROWER",
@@ -23035,6 +23063,9 @@
                 "PSYSTRIKE",
                 "SHADOW_BALL",
                 "HYPER_BEAM"
+            ],
+            "legacyMoves": [
+                "COUNTER"
             ],
             "buddyDistance": 20,
             "thirdMoveCost": 100000,
