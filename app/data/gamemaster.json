@@ -1,5 +1,5 @@
 {
-    "timestamp": "2026-06-25 22:17:15",
+    "timestamp": "2026-06-28 03:14:49",
     "id": "gamemaster",
     "title": "Default",
     "settings": {
@@ -504,16 +504,13 @@
                 {
                     "filterType": "id",
                     "values": [
-                        "aegislash_shield",
                         "araquanid",
                         "bastiodon",
                         "corviknight",
-                        "doublade",
                         "durant",
                         "empoleon",
                         "escavalier",
                         "forretress",
-                        "honedge",
                         "klang",
                         "mandibuzz",
                         "mantine",
@@ -890,6 +887,7 @@
                         "shaymin_land",
                         "banette_mega",
                         "giratina_altered",
+                        "giratina_altered_shadow",
                         "goodra",
                         "sceptile_mega",
                         "xurkitree"
@@ -1034,6 +1032,7 @@
                         "bellibolt",
                         "jellicent",
                         "mewtwo_armored",
+                        "mimikyu",
                         "tinkaton",
                         "zygarde_complete"
                     ]
@@ -1417,6 +1416,7 @@
                         "lileep",
                         "linoone",
                         "miltank",
+                        "mimikyu",
                         "naclstack",
                         "ninetales_alolan",
                         "oinkologne",
@@ -31655,6 +31655,58 @@
             },
             "tags": [
                 "shadow"
+            ],
+            "buddyDistance": 5,
+            "thirdMoveCost": 75000,
+            "released": true
+        },
+        {
+            "dex": 227,
+            "speciesName": "Skarmory (Mega)",
+            "speciesId": "skarmory_mega",
+            "baseStats": {
+                "atk": 273,
+                "def": 228,
+                "hp": 163
+            },
+            "types": [
+                "steel",
+                "flying"
+            ],
+            "fastMoves": [
+                "AIR_SLASH",
+                "STEEL_WING"
+            ],
+            "chargedMoves": [
+                "BRAVE_BIRD",
+                "FLASH_CANNON",
+                "SKY_ATTACK"
+            ],
+            "defaultIVs": {
+                "cp500": [
+                    5,
+                    15,
+                    14,
+                    13
+                ],
+                "cp1500": [
+                    14.5,
+                    7,
+                    14,
+                    14
+                ],
+                "cp2500": [
+                    24.5,
+                    4,
+                    14,
+                    13
+                ]
+            },
+            "searchPriority": 1,
+            "level25CP": 1267,
+            "tags": [
+                "shadoweligible",
+                "mega"
             ],
             "buddyDistance": 5,
             "thirdMoveCost": 75000,
@@ -104680,6 +104732,24 @@
             "cooldown": 1500,
             "archetype": "Fast Charge",
             "turns": 3
+        },
+        {
+            "moveId": "SNIPE_SHOT",
+            "name": "Snipe Shot",
+            "abbreviation": "Sni",
+            "type": "water",
+            "power": 65,
+            "energy": 35,
+            "energyGain": 0,
+            "cooldown": 500,
+            "buffs": [
+                2,
+                0
+            ],
+            "buffTarget": "opponent",
+            "buffApplyChance": ".125",
+            "archetype": "Boost Spam",
+            "turns": 1
         },
         {
             "moveId": "SOLAR_BEAM",
